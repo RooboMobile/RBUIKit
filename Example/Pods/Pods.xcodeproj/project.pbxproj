@@ -37,6 +37,10 @@
 		C2AB59FF1F7BAC8D00D45FD7 /* NSObject+RBUIViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C2AB59FC1F7BAC8D00D45FD7 /* NSObject+RBUIViewController.h */; };
 		C2AB5A001F7BAC8D00D45FD7 /* NSObject+RBUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AB59FD1F7BAC8D00D45FD7 /* NSObject+RBUIViewController.m */; };
 		C2AB5A011F7BAC8D00D45FD7 /* NSObject+RBUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AB59FD1F7BAC8D00D45FD7 /* NSObject+RBUIViewController.m */; };
+		C2AB5A041F7BD00B00D45FD7 /* UIDevice+RBExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = C2AB5A021F7BD00B00D45FD7 /* UIDevice+RBExtension.h */; };
+		C2AB5A051F7BD00B00D45FD7 /* UIDevice+RBExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = C2AB5A021F7BD00B00D45FD7 /* UIDevice+RBExtension.h */; };
+		C2AB5A061F7BD00B00D45FD7 /* UIDevice+RBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AB5A031F7BD00B00D45FD7 /* UIDevice+RBExtension.m */; };
+		C2AB5A071F7BD00B00D45FD7 /* UIDevice+RBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AB5A031F7BD00B00D45FD7 /* UIDevice+RBExtension.m */; };
 		C7D8E7F94A68F8B61601AB1AC1835076 /* UITextField+RBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D3B3FA51E204CC7E8EC73BEDD327C7 /* UITextField+RBExtension.m */; };
 		C92E368DF9C21A9E050A9331D5AB2A2A /* RBNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 437E7705534930AE5EDB52AF5E907F56 /* RBNavigationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E377A27894E8F854D27996EC17033404 /* UIView+RBFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = D0815E44DD50DCE267851D73FC966F85 /* UIView+RBFrame.m */; };
@@ -100,6 +104,8 @@
 		C2AB59F61F7BA6C000D45FD7 /* RBUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RBUIKit.h; path = RBUIKit/RBUIKit.h; sourceTree = "<group>"; };
 		C2AB59FC1F7BAC8D00D45FD7 /* NSObject+RBUIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSObject+RBUIViewController.h"; path = "RBUIKit/NSObject+RBUIViewController.h"; sourceTree = "<group>"; };
 		C2AB59FD1F7BAC8D00D45FD7 /* NSObject+RBUIViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSObject+RBUIViewController.m"; path = "RBUIKit/NSObject+RBUIViewController.m"; sourceTree = "<group>"; };
+		C2AB5A021F7BD00B00D45FD7 /* UIDevice+RBExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIDevice+RBExtension.h"; path = "RBUIKit/UIDevice+RBExtension.h"; sourceTree = "<group>"; };
+		C2AB5A031F7BD00B00D45FD7 /* UIDevice+RBExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+RBExtension.m"; path = "RBUIKit/UIDevice+RBExtension.m"; sourceTree = "<group>"; };
 		D0815E44DD50DCE267851D73FC966F85 /* UIView+RBFrame.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+RBFrame.m"; path = "RBUIKit/UIView+RBFrame.m"; sourceTree = "<group>"; };
 		D0DBA918116CF14D6B152B306D0D14F4 /* Pods-RBUIKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RBUIKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -182,6 +188,8 @@
 				D0815E44DD50DCE267851D73FC966F85 /* UIView+RBFrame.m */,
 				C2AB59FC1F7BAC8D00D45FD7 /* NSObject+RBUIViewController.h */,
 				C2AB59FD1F7BAC8D00D45FD7 /* NSObject+RBUIViewController.m */,
+				C2AB5A021F7BD00B00D45FD7 /* UIDevice+RBExtension.h */,
+				C2AB5A031F7BD00B00D45FD7 /* UIDevice+RBExtension.m */,
 				28AA206EB579864940D875067B43E7C2 /* Support Files */,
 			);
 			name = RBUIKit;
@@ -290,6 +298,7 @@
 				C92E368DF9C21A9E050A9331D5AB2A2A /* RBNavigationController.h in Headers */,
 				F6C776CED05CCAA7FF65FF938D68B081 /* RBTabBarViewController.h in Headers */,
 				1B2C1C95115497BE0CCBBEDB1ADBE19B /* RBUIKit-umbrella.h in Headers */,
+				C2AB5A051F7BD00B00D45FD7 /* UIDevice+RBExtension.h in Headers */,
 				0A28DF2E016CC0A294C4228F525EFEE7 /* UIButton+RBExtension.h in Headers */,
 				4EA9E5432B162D4B61C5D1F6DC199A3F /* UIColor+RBExtension.h in Headers */,
 				7CA301BE01C3B5545DE475E0377170EC /* UIImage+RBExtension.h in Headers */,
@@ -308,6 +317,7 @@
 			files = (
 				4292579E923BACCA9BE67E0CD2971DF4 /* Pods-RBUIKit_Example-umbrella.h in Headers */,
 				C2AB59FE1F7BAC8D00D45FD7 /* NSObject+RBUIViewController.h in Headers */,
+				C2AB5A041F7BD00B00D45FD7 /* UIDevice+RBExtension.h in Headers */,
 				C2AB59F81F7BA6C000D45FD7 /* RBUIKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,6 +420,7 @@
 			files = (
 				C2AB5A001F7BAC8D00D45FD7 /* NSObject+RBUIViewController.m in Sources */,
 				A8C48C4CCF466AEFCFE12D88225FDBF4 /* Pods-RBUIKit_Example-dummy.m in Sources */,
+				C2AB5A061F7BD00B00D45FD7 /* UIDevice+RBExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +445,7 @@
 				2528DD2BD7310138F76CAD84A36C6365 /* UIColor+RBExtension.m in Sources */,
 				544F26CDD9D3F194546DAB215CCB0073 /* UIImage+RBExtension.m in Sources */,
 				47B101EAC7BF22C27CB819FD81F6F249 /* UIScrollView+RBExtension.m in Sources */,
+				C2AB5A071F7BD00B00D45FD7 /* UIDevice+RBExtension.m in Sources */,
 				C7D8E7F94A68F8B61601AB1AC1835076 /* UITextField+RBExtension.m in Sources */,
 				A3E4BA7238C0FFB2D86C026EA1689743 /* UIView+RBDraggable.m in Sources */,
 				E377A27894E8F854D27996EC17033404 /* UIView+RBFrame.m in Sources */,

@@ -20,6 +20,7 @@
 #import <RBUIKit/UIView+RBDraggable.h>
 #import <RBUIKit/UIView+RBFrame.h>
 #import <RBUIKit/NSObject+RBUIViewController.h>
+#import <RBUIKit/UIDevice+RBExtension.h>
 #else
 #import "RBBaseViewController.h"
 #import "RBNavigationController.h"
@@ -33,5 +34,6 @@
 #import "UIView+RBDraggable.h"
 #import "UIView+RBFrame.h"
 #import "NSObject+RBUIViewController.h"
+#import "UIDevice+RBExtension.h"
 #endif
 
