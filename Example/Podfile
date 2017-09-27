@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'RBUIKit_Example' do
+  pod 'RBUIKit', :path => '../'
+
+  target 'RBUIKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
