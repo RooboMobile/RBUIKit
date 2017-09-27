@@ -19,6 +19,7 @@
 #import <RBUIKit/UITextField+RBExtension.h>
 #import <RBUIKit/UIView+RBDraggable.h>
 #import <RBUIKit/UIView+RBFrame.h>
+#import <RBUIKit/NSObject+RBUIViewController.h>
 #else
 #import "RBBaseViewController.h"
 #import "RBNavigationController.h"
@@ -31,5 +32,6 @@
 #import "UITextField+RBExtension.h"
 #import "UIView+RBDraggable.h"
 #import "UIView+RBFrame.h"
+#import "NSObject+RBUIViewController.h"
 #endif
 
