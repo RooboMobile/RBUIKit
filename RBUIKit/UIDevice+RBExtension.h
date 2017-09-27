@@ -9,7 +9,7 @@
 
 @interface UIDevice (RBExtension)
 
-+ (nullable NSString *)wiFiSSID
++ (nullable NSString *)wiFiSSID;
 + (nullable NSString *)wiFiIPAddress;
 + (nullable NSString *)cellIPAddress;
 @end
