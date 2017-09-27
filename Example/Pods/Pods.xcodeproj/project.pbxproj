@@ -31,6 +31,8 @@
 		B48A3AEC71E8B52F0AB65D372FE27A1E /* RBTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACDD1BE87FE467A144DD2ABBE14BAB9 /* RBTabBarViewController.m */; };
 		B999A02918B75CA7F5C673E36D177257 /* RBUIKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE522C70F90C9272F745ED0322D93F9 /* RBUIKit-dummy.m */; };
 		C060210876B4ABF96D6E44582A0E09B4 /* Pods-RBUIKit_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 678041C4EE2A90DE54C38994F67B8425 /* Pods-RBUIKit_Tests-dummy.m */; };
+		C2AB59F81F7BA6C000D45FD7 /* RBUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C2AB59F61F7BA6C000D45FD7 /* RBUIKit.h */; };
+		C2AB59F91F7BA6C000D45FD7 /* RBUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C2AB59F61F7BA6C000D45FD7 /* RBUIKit.h */; };
 		C7D8E7F94A68F8B61601AB1AC1835076 /* UITextField+RBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D3B3FA51E204CC7E8EC73BEDD327C7 /* UITextField+RBExtension.m */; };
 		C92E368DF9C21A9E050A9331D5AB2A2A /* RBNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 437E7705534930AE5EDB52AF5E907F56 /* RBNavigationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E377A27894E8F854D27996EC17033404 /* UIView+RBFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = D0815E44DD50DCE267851D73FC966F85 /* UIView+RBFrame.m */; };
@@ -91,6 +93,7 @@
 		B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		B936628EA61AFB7DC884EA170B38F9B2 /* Pods-RBUIKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RBUIKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C00542A93747DBB52486DA4C6C58E731 /* UIButton+RBExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+RBExtension.h"; path = "RBUIKit/UIButton+RBExtension.h"; sourceTree = "<group>"; };
+		C2AB59F61F7BA6C000D45FD7 /* RBUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RBUIKit.h; path = RBUIKit/RBUIKit.h; sourceTree = "<group>"; };
 		D0815E44DD50DCE267851D73FC966F85 /* UIView+RBFrame.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+RBFrame.m"; path = "RBUIKit/UIView+RBFrame.m"; sourceTree = "<group>"; };
 		D0DBA918116CF14D6B152B306D0D14F4 /* Pods-RBUIKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RBUIKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -150,6 +153,7 @@
 		2ED23E7B1316DE49480B62BA95B05AD6 /* RBUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				C2AB59F61F7BA6C000D45FD7 /* RBUIKit.h */,
 				3D88BEEFE3C8EBC881C30B9BD25936C1 /* RBBaseViewController.h */,
 				2CBE186CA40641A4DF3D95150CB3D39A /* RBBaseViewController.m */,
 				437E7705534930AE5EDB52AF5E907F56 /* RBNavigationController.h */,
@@ -283,6 +287,7 @@
 				7CA301BE01C3B5545DE475E0377170EC /* UIImage+RBExtension.h in Headers */,
 				E4E22F6FF13E2FDD0F0923382440342D /* UIScrollView+RBExtension.h in Headers */,
 				EB927B7D6AA7F3855B06FBFD0FD4A70F /* UITextField+RBExtension.h in Headers */,
+				C2AB59F91F7BA6C000D45FD7 /* RBUIKit.h in Headers */,
 				79A9FF93FF112DFF74315596A6246D01 /* UIView+RBDraggable.h in Headers */,
 				2940D85311D3A21D66DFD9A77448DF24 /* UIView+RBFrame.h in Headers */,
 			);
@@ -293,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4292579E923BACCA9BE67E0CD2971DF4 /* Pods-RBUIKit_Example-umbrella.h in Headers */,
+				C2AB59F81F7BA6C000D45FD7 /* RBUIKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
