@@ -1,0 +1,6 @@
+framework module RBUIKit {
+  umbrella header "RBUIKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
