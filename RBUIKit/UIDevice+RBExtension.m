@@ -6,6 +6,7 @@
 //
 
 #import "UIDevice+RBExtension.h"
+ #import <SystemConfiguration/CaptiveNetwork.h>
 #include <net/if.h>
 #include <net/if_dl.h>
 #include <ifaddrs.h>
