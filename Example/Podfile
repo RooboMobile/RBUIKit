@@ -1,11 +1,5 @@
-use_frameworks!
-
+platform :ios, "7.0"
 target 'RBUIKit_Example' do
   pod 'RBUIKit', :path => '../'
 
-  target 'RBUIKit_Tests' do
-    inherit! :search_paths
-
-    
-  end
 end
