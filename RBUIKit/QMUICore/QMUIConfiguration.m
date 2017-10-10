@@ -17,20 +17,6 @@
 + (instancetype)sharedInstance {
     static dispatch_once_t pred;
     static QMUIConfiguration *sharedInstance = nil;
-    
-    // 检查是否有在某些类的 +load 方法里调用 QMUICMI，因为在 [QMUIConfiguration init] 方法里会操作到 UI 的东西，例如 [UINavigationBar appearance] xxx 等，这些操作不能太早（+load 里就太早了）执行，否则会 crash，所以加这个检测
-//#ifdef DEBUG
-//    BOOL shouldCheckCallStack = NO;
-//    if (shouldCheckCallStack) {
-//        for (NSString *symbol in [NSThread callStackSymbols]) {
-//            if ([symbol qmui_includesString:@" load]"]) {
-//                NSAssert(NO, @"不应该在 + load 方法里调用 %s", __func__);
-//                return nil;
-//            }
-//        }
-//    }
-//#endif
-    
     dispatch_once(&pred, ^{
         sharedInstance = [[QMUIConfiguration alloc] init];
     });
