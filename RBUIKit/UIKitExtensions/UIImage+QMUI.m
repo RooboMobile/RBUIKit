@@ -9,7 +9,6 @@
 #import "UIImage+QMUI.h"
 #import "QMUICore.h"
 #import "UIBezierPath+QMUI.h"
-#import "UIColor+QMUI.h"
 #import <Accelerate/Accelerate.h>
 
 CG_INLINE CGSize
@@ -439,8 +438,8 @@ CGSizeFlatSpecificScale(CGSize size, float scale) {
     
     UIImage *resultImage = nil;
     color = color ? color : UIColorClear;
-
-	BOOL opaque = (cornerRadius == 0.0 && [color qmui_alpha] == 1.0);
+    
+	BOOL opaque = (cornerRadius == 0.0 && CGColorGetAlpha(color.CGColor) == 1.0);
     UIGraphicsBeginImageContextWithOptions(size, opaque, 0);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetFillColorWithColor(context, color.CGColor);

@@ -9,7 +9,8 @@
 #import "UIView+QMUI.h"
 #import "QMUICore.h"
 #import "CALayer+QMUI.h"
-#import "UIColor+QMUI.h"
+//#import "UIColor+QMUI.h"
+#import "UIColor+RBUIKit.h"
 #import "NSObject+QMUI.h"
 #import "UIImage+QMUI.h"
 #import <objc/runtime.h>
@@ -194,7 +195,7 @@ static char kAssociatedObjectKey_hasDebugColor;
     if (!self.qmui_needsDifferentDebugColor) {
         return UIColorTestRed;
     } else {
-        return [[UIColor qmui_randomColor] colorWithAlphaComponent:.8];
+        return [[UIColor randomColor] colorWithAlphaComponent:.8];
     }
 }
 
