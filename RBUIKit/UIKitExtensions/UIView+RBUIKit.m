@@ -1,14 +1,15 @@
 //
-//  UIView+BXFrame.m
-//  Pods
+//  UIView+RBUIKit.m
+//   
 //
-//  Created by baxiang on 2017/6/13.
-//
+//   Created by baxiang on 17/6/13.
+//  
 //
 
-#import "UIView+RBFrame.h"
+#import "UIView+RBUIKit.h"
 
-@implementation UIView (RBFrame)
+@implementation UIView (RBUIKit)
+
 - (CGFloat)top
 {
     return self.frame.origin.y;
@@ -119,4 +120,30 @@
 - (void)setCenterY:(CGFloat)centerY {
     self.center = CGPointMake(self.center.x, centerY);
 }
+
+- (void)removeAllSubviews {
+    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+}
+
+
+
+- (UIImage *)snapshotImage {
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0);
+    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *snap = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return snap;
+}
+
+- (UIImage *)snapshotImageAfterScreenUpdates:(BOOL)afterUpdates {
+    if (![self respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
+        return [self snapshotImage];
+    }
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0);
+    [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:afterUpdates];
+    UIImage *snap = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return snap;
+}
+
 @end
