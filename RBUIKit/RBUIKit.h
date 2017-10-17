@@ -7,10 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #if __has_include(<RBUIKit/RBUIKit.h>)
-#import <RBUIKit/RBBaseViewController.h>
-#import <RBUIKit/RBNavigationController.h>
-#import <RBUIKit/RBTabBarViewController.h>
-#import <RBUIKit/RBTabBarViewController.h>
+
 #import <RBUIKit/UIButton+RBExtension.h>
 #import <RBUIKit/UIColor+RBUIKit.h>
 #import <RBUIKit/UIImage+RBExtension.h>
