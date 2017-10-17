@@ -7,7 +7,8 @@
 //
 
 #import "UIImage+QMUI.h"
-#import "QMUICore.h"
+#import "RBUIKitMacros.h"
+#import "RBUIConfigurationMacros.h"
 #import "UIBezierPath+QMUI.h"
 #import <Accelerate/Accelerate.h>
 

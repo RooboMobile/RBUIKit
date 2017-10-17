@@ -7,7 +7,7 @@
 //
 
 #import "UITextView+QMUI.h"
-#import "QMUICore.h"
+#import "RBUIKitMacros.h"
 
 @implementation UITextView (QMUI)
 

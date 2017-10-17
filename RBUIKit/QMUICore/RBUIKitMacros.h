@@ -10,14 +10,6 @@
 #import <objc/runtime.h>
 #import "QMUIHelper.h"
 
-#pragma mark - 变量-编译相关
-
-// 判断当前是否debug编译模式
-#ifdef DEBUG
-#define IS_DEBUG YES
-#else
-#define IS_DEBUG NO
-#endif
 
 
 /// 判断当前编译使用的 Base SDK 版本是否为 iOS 8.0 及以上

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "QMUICore.h"
+#import "QMUIHelper.h"
 
 /**
  *  @warning 在这里兼容了 iOS 9.0 以下的版本对 loadViewIfNeeded 方法的调用

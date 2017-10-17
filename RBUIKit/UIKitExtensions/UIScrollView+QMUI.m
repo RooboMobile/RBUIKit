@@ -7,7 +7,7 @@
 //
 
 #import "UIScrollView+QMUI.h"
-#import "QMUICore.h"
+#import "RBUIKitMacros.h"
 
 @implementation UIScrollView (QMUI)
 

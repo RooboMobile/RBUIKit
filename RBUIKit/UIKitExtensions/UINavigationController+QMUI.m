@@ -7,7 +7,7 @@
 //
 
 #import "UINavigationController+QMUI.h"
-#import "QMUICore.h"
+#import "RBUIKitMacros.h"
 
 @interface UINavigationController (BackButtonHandlerProtocol)
 

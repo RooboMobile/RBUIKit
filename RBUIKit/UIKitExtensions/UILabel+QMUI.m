@@ -7,7 +7,7 @@
 //
 
 #import "UILabel+QMUI.h"
-#import "QMUICore.h"
+#import "RBUIKitMacros.h"
 #import "NSParagraphStyle+QMUI.h"
 #import "NSObject+QMUI.h"
 

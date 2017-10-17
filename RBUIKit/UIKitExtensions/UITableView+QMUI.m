@@ -7,7 +7,8 @@
 //
 
 #import "UITableView+QMUI.h"
-#import "QMUICore.h"
+#import "RBUIKitMacros.h"
+#import "RBUIConfigurationMacros.h"
 #import "UIScrollView+QMUI.h"
 
 @implementation UITableView (QMUI)

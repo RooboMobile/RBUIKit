@@ -7,7 +7,7 @@
 //
 
 #import "UIWindow+QMUI.h"
-#import "QMUICore.h"
+#import "RBUIKitMacros.h"
 
 @implementation UIWindow (QMUI)
 

@@ -8,7 +8,7 @@
 
 #import "UIControl+QMUI.h"
 #import <objc/runtime.h>
-#import "QMUICore.h"
+#import "RBUIKitMacros.h"
 
 static char kAssociatedObjectKey_needsTakeOverTouchEvent;
 static char kAssociatedObjectKey_automaticallyAdjustTouchHighlightedInScrollView;

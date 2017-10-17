@@ -7,7 +7,7 @@
 //
 
 #import "UIButton+QMUI.h"
-#import "QMUICore.h"
+#import "RBUIKitMacros.h"
 
 @implementation UIButton (QMUI)
 

@@ -7,8 +7,8 @@
 //
 
 #import "CALayer+QMUI.h"
-#import "QMUICore.h"
-
+#import "RBUIKitMacros.h"
+#import "RBUIConfigurationMacros.h"
 @implementation CALayer (QMUI)
 
 - (void)qmui_sendSublayerToBack:(CALayer *)sublayer {

@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
+#import "RBUIKitMacros.h"
 /**
  *  维护项目全局 UI 配置的单例，通过业务项目自己的 QMUIConfigurationTemplate 来为这个单例赋值，而业务代码里则通过 QMUIConfigurationMacros.h 文件里的宏来使用这些值。
  */
-@interface QMUIConfiguration : NSObject
+@interface RBUIConfiguration : NSObject
 
 NS_ASSUME_NONNULL_BEGIN
 

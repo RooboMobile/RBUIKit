@@ -7,7 +7,8 @@
 //
 
 #import "UISearchBar+QMUI.h"
-#import "QMUICore.h"
+#import "RBUIKitMacros.h"
+#import "RBUIConfigurationMacros.h"
 #import "UIImage+QMUI.h"
 
 @implementation UISearchBar (QMUI)

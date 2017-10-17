@@ -2,10 +2,9 @@
 
 #import <UIKit/UIKit.h>
 
--
--#import <Foundation/Foundation.h>
-+/// Automatically created by script in Build Phases
-+
+
+#import <Foundation/Foundation.h>
+
 #import <UIKit/UIKit.h>
 #if __has_include(<RBUIKit/RBUIKit.h>)
 #import <RBUIKit/RBBaseViewController.h>

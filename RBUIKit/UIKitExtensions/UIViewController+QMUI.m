@@ -8,7 +8,8 @@
 
 #import "UIViewController+QMUI.h"
 #import "UINavigationController+QMUI.h"
-#import "QMUICore.h"
+#import "RBUIKitMacros.h"
+#import "RBUIConfigurationMacros.h"
 #import "NSObject+QMUI.h"
 
 @interface UIViewController ()
@@ -23,24 +24,24 @@ void qmui_loadViewIfNeeded (id current_self, SEL current_cmd) {
     QMUILog(@"%@", ((UIViewController *)current_self).view);
 }
 
-+ (void)load {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        
-        // 为 description 增加更丰富的信息
-        ReplaceMethod([UIViewController class], @selector(description), @selector(qmui_description));
-        
-        // 兼容 iOS 9.0 以下的版本对 loadViewIfNeeded 方法的调用
-        if (![[UIViewController class] instancesRespondToSelector:@selector(loadViewIfNeeded)]) {
-            Class metaclass = [self class];
-            BOOL success = class_addMethod(metaclass, @selector(loadViewIfNeeded), (IMP)qmui_loadViewIfNeeded, "v@:");
-            QMUILog(@"%@ %s, success = %@", NSStringFromClass([self class]), __func__, StringFromBOOL(success));
-        }
-        
-        // 实现 AutomaticallyRotateDeviceOrientation 开关的功能
-        ReplaceMethod([UIViewController class], @selector(viewWillAppear:), @selector(qmui_viewWillAppear:));
-    });
-}
+//+ (void)load {
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        
+//        // 为 description 增加更丰富的信息
+//        ReplaceMethod([UIViewController class], @selector(description), @selector(qmui_description));
+//        
+//        // 兼容 iOS 9.0 以下的版本对 loadViewIfNeeded 方法的调用
+//        if (![[UIViewController class] instancesRespondToSelector:@selector(loadViewIfNeeded)]) {
+//            Class metaclass = [self class];
+//            BOOL success = class_addMethod(metaclass, @selector(loadViewIfNeeded), (IMP)qmui_loadViewIfNeeded, "v@:");
+//            QMUILog(@"%@ %s, success = %@", NSStringFromClass([self class]), __func__, StringFromBOOL(success));
+//        }
+//        
+//        // 实现 AutomaticallyRotateDeviceOrientation 开关的功能
+//        ReplaceMethod([UIViewController class], @selector(viewWillAppear:), @selector(qmui_viewWillAppear:));
+//    });
+//}
 
 - (NSString *)qmui_description {
     NSString *result = [NSString stringWithFormat:@"%@\nsuperclass:\t\t\t\t%@\ntitle:\t\t\t\t\t%@\nview:\t\t\t\t\t%@", [self qmui_description], NSStringFromClass(self.superclass), self.title, [self isViewLoaded] ? self.view : nil];

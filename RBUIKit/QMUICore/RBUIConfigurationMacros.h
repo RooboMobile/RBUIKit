@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 QMUI Team. All rights reserved.
 //
 
-#import "QMUIConfiguration.h"
+#import "RBUIConfiguration.h"
 
 
 /**
@@ -18,7 +18,7 @@
 
 // 单例的宏
 
-#define QMUICMI [QMUIConfiguration sharedInstance]
+#define QMUICMI [RBUIConfiguration sharedInstance]
 
 
 #pragma mark - Global Color

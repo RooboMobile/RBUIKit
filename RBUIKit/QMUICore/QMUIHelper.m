@@ -7,9 +7,8 @@
 //
 
 #import "QMUIHelper.h"
-#import "QMUICore.h"
 #import <AVFoundation/AVFoundation.h>
-
+#import "RBUIKitMacros.h"
 
 NSString *const QMUIResourcesMainBundleName = @"QMUIResources.bundle";
 NSString *const QMUIResourcesQQEmotionBundleName = @"QMUI_QQEmotion.bundle";

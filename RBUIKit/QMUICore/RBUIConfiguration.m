@@ -6,19 +6,18 @@
 //  Copyright (c) 2015年 QMUI Team. All rights reserved.
 //
 
-#import "QMUIConfiguration.h"
-#import "QMUICore.h"
+#import "RBUIConfiguration.h"
 #import "UIImage+QMUI.h"
 #import "NSString+QMUI.h"
 #import "UIViewController+QMUI.h"
 
-@implementation QMUIConfiguration
+@implementation RBUIConfiguration
 
 + (instancetype)sharedInstance {
     static dispatch_once_t pred;
-    static QMUIConfiguration *sharedInstance = nil;
+    static RBUIConfiguration *sharedInstance = nil;
     dispatch_once(&pred, ^{
-        sharedInstance = [[QMUIConfiguration alloc] init];
+        sharedInstance = [[RBUIConfiguration alloc] init];
     });
     return sharedInstance;
 }

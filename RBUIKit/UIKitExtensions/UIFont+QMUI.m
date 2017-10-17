@@ -7,7 +7,7 @@
 //
 
 #import "UIFont+QMUI.h"
-#import "QMUICore.h"
+#import "RBUIKitMacros.h"
 
 @implementation UIFont (QMUI)
 
