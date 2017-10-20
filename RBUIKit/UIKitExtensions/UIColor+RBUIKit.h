@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#ifndef UIColorHex
+#define UIColorHex(_hex_)   [UIColor colorWithHexString:((__bridge NSString *)CFSTR(#_hex_))]
+#endif
+
+
+
 @interface UIColor (RBUIKit)
 
 @property (nonatomic, readonly) CGFloat red;//获取当前UIColor对象里的红色色值
