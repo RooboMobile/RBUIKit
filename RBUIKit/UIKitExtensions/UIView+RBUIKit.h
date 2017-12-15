@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-
+NS_ASSUME_NONNULL_BEGIN
 /**
  *  对 view.frame 操作的简便封装，注意 view 与 view 之间互相计算时，需要保证处于同一个坐标系内。
  */
@@ -37,9 +37,13 @@
 
 @property (nonatomic) CGFloat centerY;
 
+
+@property (nullable, nonatomic, readonly) UIViewController *viewController;
 - (void)removeAllSubviews;
 
 - (UIImage *)snapshotImage;
 
 - (UIImage *)snapshotImageAfterScreenUpdates:(BOOL)afterScreenUpdates;
+
 @end
+NS_ASSUME_NONNULL_END

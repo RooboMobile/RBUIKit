@@ -9,7 +9,6 @@
 #import "UIViewController+QMUI.h"
 #import "UINavigationController+QMUI.h"
 #import "RBUIKitMacros.h"
-#import "RBUIConfigurationMacros.h"
 #import "NSObject+QMUI.h"
 
 @interface UIViewController ()
@@ -74,9 +73,7 @@ void qmui_loadViewIfNeeded (id current_self, SEL current_cmd) {
 
 - (void)qmui_viewWillAppear:(BOOL)animated {
     [self qmui_viewWillAppear:animated];
-    if (!AutomaticallyRotateDeviceOrientation) {
-        return;
-    }
+   
     
     UIInterfaceOrientation statusBarOrientation = [[UIApplication sharedApplication] statusBarOrientation];
     UIDeviceOrientation deviceOrientationBeforeChangingByHelper = [QMUIHelper sharedInstance].orientationBeforeChangingByHelper;

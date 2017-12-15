@@ -8,7 +8,7 @@
 
 #import "UIImage+QMUI.h"
 #import "RBUIKitMacros.h"
-#import "RBUIConfigurationMacros.h"
+//#import "RBUIConfigurationMacros.h"
 #import "UIBezierPath+QMUI.h"
 #import <Accelerate/Accelerate.h>
 
@@ -19,16 +19,7 @@ CGSizeFlatSpecificScale(CGSize size, float scale) {
 
 @implementation UIImage (QMUI)
 
-+ (void)load {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        ReplaceMethod([self class], @selector(description), @selector(qmui_description));
-    });
-}
 
-- (NSString *)qmui_description {
-    return [NSString stringWithFormat:@"%@, scale = %@", [self qmui_description], @(self.scale)];
-}
 
 - (UIColor *)qmui_averageColor {
 	unsigned char rgba[4] = {};
@@ -438,7 +429,7 @@ CGSizeFlatSpecificScale(CGSize size, float scale) {
     CGContextInspectSize(size);
     
     UIImage *resultImage = nil;
-    color = color ? color : UIColorClear;
+    color = color ? color : [UIColor clearColor];
     
 	BOOL opaque = (cornerRadius == 0.0 && CGColorGetAlpha(color.CGColor) == 1.0);
     UIGraphicsBeginImageContextWithOptions(size, opaque, 0);
@@ -466,7 +457,7 @@ CGSizeFlatSpecificScale(CGSize size, float scale) {
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextInspectContext(context);
     
-    color = color ? color : UIColorWhite;
+    color = color ? color : [UIColor whiteColor];
     CGContextSetFillColorWithColor(context, color.CGColor);
     
     UIBezierPath *path = [UIBezierPath qmui_bezierPathWithRoundedRect:CGRectMakeWithSize(size) cornerRadiusArray:cornerRadius lineWidth:0];

@@ -7,10 +7,24 @@
 //
 
 #import "UIButton+RBExtension.h"
-
+#import "UIImage+RBExtension.h"
 @implementation UIButton (RBExtension)
+
+
+- (void)setBackgroundColor:(UIColor *)backgroundColor forState:(UIControlState)state
+{
+    [self setBackgroundImage:[UIImage imageWithColor:backgroundColor] forState:state];
+}
+
+- (void)setImage:(UIImage *)image imageHL:(UIImage *)imageHL
+{
+    [self setImage:image forState:UIControlStateNormal];
+    [self setImage:imageHL forState:UIControlStateHighlighted];
+}
+
+
 -(void)startTime:(NSInteger )timeout title:(NSString *)tittle waitTittle:(NSString *)waitTittle{
-    __block NSInteger timeOut=timeout; //倒计时时间
+    __block NSInteger timeOut = timeout; //倒计时时间
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
     dispatch_source_set_timer(_timer,dispatch_walltime(NULL, 0),1.0*NSEC_PER_SEC, 0); //每秒执行
@@ -38,6 +52,5 @@
         }
     });
     dispatch_resume(_timer);
-    
 }
 @end

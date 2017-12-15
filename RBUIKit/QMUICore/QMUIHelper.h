@@ -29,11 +29,6 @@ extern NSString *const _Nonnull QMUIResourcesMainBundleName;
 extern NSString *const _Nonnull QMUIResourcesQQEmotionBundleName;
 
 @interface QMUIHelper (Bundle)
-
-// QMUI专属
-+ (nullable NSBundle *)resourcesBundle;
-+ (nullable UIImage *)imageWithName:(nullable NSString *)name;
-
 + (nullable NSBundle *)resourcesBundleWithName:(nullable NSString *)bundleName;
 + (nullable UIImage *)imageInBundle:(nullable NSBundle *)bundle withName:(nullable NSString *)name;
 @end

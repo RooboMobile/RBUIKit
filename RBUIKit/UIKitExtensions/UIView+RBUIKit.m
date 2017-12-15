@@ -121,6 +121,17 @@
     self.center = CGPointMake(self.center.x, centerY);
 }
 
+
+- (UIViewController *)viewController {
+    for (UIView *view = self; view; view = view.superview) {
+        UIResponder *nextResponder = [view nextResponder];
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)nextResponder;
+        }
+    }
+    return nil;
+}
+
 - (void)removeAllSubviews {
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
 }
@@ -145,5 +156,11 @@
     UIGraphicsEndImageContext();
     return snap;
 }
+
+
+
+
+
+
 
 @end
