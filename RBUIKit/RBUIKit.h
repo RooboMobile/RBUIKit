@@ -8,7 +8,6 @@
 #import <RBUIKit/UIColor+RBUIKit.h>
 #import <RBUIKit/UIImage+RBExtension.h>
 #import <RBUIKit/UIScrollView+RBExtension.h>
-#import <RBUIKit/UITextField+RBExtension.h>
 #import <RBUIKit/UIView+RBUIKit.h>
 #import <RBUIKit/NSObject+RBUIViewController.h>
 #import <RBUIKit/UIDevice+RBExtension.h>
@@ -18,7 +17,6 @@
 #import "UIView+RBUIKit.h"
 #import "UIImage+RBExtension.h"
 #import "UIScrollView+RBExtension.h"
-#import "UITextField+RBExtension.h"
 #import "NSObject+RBUIViewController.h"
 #import "UIDevice+RBExtension.h"
 #import "UIImage+RBExtension.h"

@@ -1,7 +1,7 @@
 PODS:
-  - RBUIKit (0.1.0):
-    - RBUIKit/QMUICore (= 0.1.0)
-  - RBUIKit/QMUICore (0.1.0)
+  - RBUIKit (1.1.1):
+    - RBUIKit/QMUICore (= 1.1.1)
+  - RBUIKit/QMUICore (1.1.1)
 
 DEPENDENCIES:
   - RBUIKit (from `../`)
@@ -11,7 +11,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  RBUIKit: 48d0507491c329c073cd4ccc77d9cf66cd1fe229
+  RBUIKit: 678d2ee8361240848587b8bd3a611ea30d3da61c
 
 PODFILE CHECKSUM: 775270e5f495a523e0a67b04193334a232afd0d1
 

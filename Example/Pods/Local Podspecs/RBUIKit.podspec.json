@@ -1,6 +1,6 @@
 {
   "name": "RBUIKit",
-  "version": "0.1.0",
+  "version": "1.1.1",
   "summary": "A short description of RBUIKit.",
   "description": "UIKit",
   "homepage": "https://github.com/RooboMobile/RBUIKit",
@@ -13,19 +13,18 @@
   },
   "source": {
     "git": "https://github.com/RooboMobile/RBUIKit.git",
-    "branch": "master"
+    "tag": "1.1.1"
   },
   "platforms": {
     "ios": "7.0"
   },
-  "source_files": "RBUIKit/QMUIKit.h",
+  "source_files": "RBUIKit/RBUIKit.h",
   "frameworks": [
     "Foundation",
     "UIKit",
     "CoreGraphics",
     "Photos"
   ],
-  "resources": "QMUIKit/**/*.bundle",
   "subspecs": [
     {
       "name": "QMUICore",
