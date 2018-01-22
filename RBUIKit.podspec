@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RBUIKit'
-  s.version="1.2.0"
+  s.version="1.3.0"
   s.summary          = 'A short description of RBUIKit.'
   s.description      =  'UIKit '
   s.homepage         = 'https://github.com/RooboMobile/RBUIKit'
