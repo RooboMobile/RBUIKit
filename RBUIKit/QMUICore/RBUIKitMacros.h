@@ -12,6 +12,16 @@
 
 
 
+#pragma mark - 变量-编译相关
+
+// 判断当前是否debug编译模式
+#ifdef DEBUG
+#define IS_DEBUG YES
+#else
+#define IS_DEBUG NO
+#endif
+
+
 /// 判断当前编译使用的 Base SDK 版本是否为 iOS 8.0 及以上
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
@@ -256,11 +266,11 @@ CG_INLINE CGFloat
 CGFloatToFixed(CGFloat value, NSUInteger precision) {
     NSString *formatString = [NSString stringWithFormat:@"%%.%@f", @(precision)];
     NSString *toString = [NSString stringWithFormat:formatString, value];
-    #if defined(__LP64__) && __LP64__
+#if defined(__LP64__) && __LP64__
     CGFloat result = [toString doubleValue];
-    #else
+#else
     CGFloat result = [toString floatValue];
-    #endif
+#endif
     return result;
 }
 

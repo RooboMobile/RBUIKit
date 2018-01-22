@@ -7,13 +7,18 @@
 //
 
 #import "QMUIHelper.h"
-#import <AVFoundation/AVFoundation.h>
 #import "RBUIKitMacros.h"
+#import <AVFoundation/AVFoundation.h>
 
+
+NSString *const QMUIResourcesMainBundleName = @"QMUIResources.bundle";
+NSString *const QMUIResourcesQQEmotionBundleName = @"QMUI_QQEmotion.bundle";
 
 @implementation QMUIHelper (Bundle)
 
-
++ (NSBundle *)resourcesBundle {
+    return [QMUIHelper resourcesBundleWithName:QMUIResourcesMainBundleName];
+}
 
 + (NSBundle *)resourcesBundleWithName:(NSString *)bundleName {
     NSBundle *bundle = [NSBundle bundleWithPath: [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:bundleName]];
@@ -28,7 +33,10 @@
     return bundle;
 }
 
-
++ (UIImage *)imageWithName:(NSString *)name {
+    NSBundle *bundle = [QMUIHelper resourcesBundle];
+    return [QMUIHelper imageInBundle:bundle withName:name];
+}
 
 + (UIImage *)imageInBundle:(NSBundle *)bundle withName:(NSString *)name {
     if (bundle && name) {
@@ -525,3 +533,4 @@ NSString *const QMUISpringAnimationKey = @"QMUISpringAnimationKey";
 }
 
 @end
+
