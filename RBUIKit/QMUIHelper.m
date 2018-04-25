@@ -7,14 +7,45 @@
 //
 
 #import "QMUIHelper.h"
-#import "RBUIKitMacros.h"
+#import <objc/runtime.h>
 #import <AVFoundation/AVFoundation.h>
 
 
 NSString *const QMUIResourcesMainBundleName = @"QMUIResources.bundle";
 NSString *const QMUIResourcesQQEmotionBundleName = @"QMUI_QQEmotion.bundle";
 
-@implementation QMUIHelper (Bundle)
+
+@implementation QMUIHelper
+
++ (instancetype)sharedInstance {
+    static dispatch_once_t onceToken;
+    static QMUIHelper *instance = nil;
+    dispatch_once(&onceToken,^{
+        instance = [[super allocWithZone:NULL] init];
+        // 先设置默认值，不然可能变量的指针地址错误
+        instance.keyboardVisible = NO;
+        instance.lastKeyboardHeight = 0;
+        instance.orientationBeforeChangingByHelper = UIDeviceOrientationUnknown;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:instance selector:@selector(handleKeyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:instance selector:@selector(handleKeyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:instance selector:@selector(handleDeviceOrientationNotification:) name:UIDeviceOrientationDidChangeNotification object:nil];
+    });
+    return instance;
+}
+
++ (id)allocWithZone:(struct _NSZone *)zone{
+    return [self sharedInstance];
+}
+
+- (void)dealloc {
+    // QMUIHelper 若干个分类里有用到消息监听，所以在 dealloc 的时候注销一下
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
+
+
 
 + (NSBundle *)resourcesBundle {
     return [QMUIHelper resourcesBundleWithName:QMUIResourcesMainBundleName];
@@ -58,10 +89,7 @@ NSString *const QMUIResourcesQQEmotionBundleName = @"QMUI_QQEmotion.bundle";
     return nil;
 }
 
-@end
 
-
-@implementation QMUIHelper (DynamicType)
 
 + (NSNumber *)preferredContentSizeLevel {
     NSNumber *index = nil;
@@ -105,9 +133,9 @@ NSString *const QMUIResourcesQQEmotionBundleName = @"QMUI_QQEmotion.bundle";
     NSNumber *index = [QMUIHelper preferredContentSizeLevel];
     return [((NSNumber *)[heights objectAtIndex:[index intValue]]) floatValue];
 }
-@end
 
-@implementation QMUIHelper (Keyboard)
+
+
 
 - (void)handleKeyboardWillShow:(NSNotification *)notification {
     self.keyboardVisible = YES;
@@ -184,10 +212,10 @@ static char kAssociatedObjectKey_LastKeyboardHeight;
     return options;
 }
 
-@end
 
 
-@implementation QMUIHelper (AudioSession)
+
+
 
 + (void)redirectAudioRouteWithSpeaker:(BOOL)speaker temporary:(BOOL)temporary {
     if (![[AVAudioSession sharedInstance].category isEqualToString:AVAudioSessionCategoryPlayAndRecord]) {
@@ -238,10 +266,10 @@ static char kAssociatedObjectKey_LastKeyboardHeight;
     return kAudioSessionCategory_AmbientSound;
 }
 
-@end
 
 
-@implementation QMUIHelper (UIGraphic)
+
+
 
 static CGFloat pixelOne = -1.0f;
 + (CGFloat)pixelOne {
@@ -271,9 +299,9 @@ static CGFloat pixelOne = -1.0f;
     return NO;
 }
 
-@end
 
-@implementation QMUIHelper (Device)
+
+
 
 static NSInteger isIPad = -1;
 + (BOOL)isIPad {
@@ -382,17 +410,6 @@ static NSInteger is35InchScreen = -1;
     return CGSizeMake(320, 480);
 }
 
-static NSInteger isHighPerformanceDevice = -1;
-+ (BOOL)isHighPerformanceDevice {
-    if (isHighPerformanceDevice < 0) {
-        isHighPerformanceDevice = PreferredVarForUniversalDevices(1, 1, 1, 0, 0);
-    }
-    return isHighPerformanceDevice > 0;
-}
-
-@end
-
-@implementation QMUIHelper (Orientation)
 
 - (void)handleDeviceOrientationNotification:(NSNotification *)notification {
     // 如果是由 setValue:forKey: 方式修改方向而走到这个 notification 的话，理论上是不需要重置为 Unknown 的，但因为在 UIViewController (QMUI) 那边会再次记录旋转前的值，所以这里就算重置也无所谓
@@ -447,9 +464,7 @@ static char kAssociatedObjectKey_orientationBeforeChangedByHelper;
     return CGAffineTransformMakeRotation(angle);
 }
 
-@end
 
-@implementation QMUIHelper (UIApplication)
 
 + (void)renderStatusBarStyleDark {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
@@ -471,11 +486,11 @@ static char kAssociatedObjectKey_orientationBeforeChangedByHelper;
     [window tintColorDidChange];
 }
 
-@end
+
 
 NSString *const QMUISpringAnimationKey = @"QMUISpringAnimationKey";
 
-@implementation QMUIHelper (Animation)
+
 
 + (void)actionSpringAnimationForView:(UIView *)view {
     NSTimeInterval duration = 0.6;
@@ -486,9 +501,9 @@ NSString *const QMUISpringAnimationKey = @"QMUISpringAnimationKey";
     [view.layer addAnimation:springAnimation forKey:QMUISpringAnimationKey];
 }
 
-@end
 
-@implementation QMUIHelper (Log)
+
+
 
 - (void)printLogWithCalledFunction:(nonnull const char *)func log:(nonnull NSString *)log, ... {
     va_list args;
@@ -502,35 +517,6 @@ NSString *const QMUISpringAnimationKey = @"QMUISpringAnimationKey";
     va_end(args);
 }
 
-@end
-
-@implementation QMUIHelper
-
-+ (instancetype)sharedInstance {
-    static dispatch_once_t onceToken;
-    static QMUIHelper *instance = nil;
-    dispatch_once(&onceToken,^{
-        instance = [[super allocWithZone:NULL] init];
-        // 先设置默认值，不然可能变量的指针地址错误
-        instance.keyboardVisible = NO;
-        instance.lastKeyboardHeight = 0;
-        instance.orientationBeforeChangingByHelper = UIDeviceOrientationUnknown;
-        
-        [[NSNotificationCenter defaultCenter] addObserver:instance selector:@selector(handleKeyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:instance selector:@selector(handleKeyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:instance selector:@selector(handleDeviceOrientationNotification:) name:UIDeviceOrientationDidChangeNotification object:nil];
-    });
-    return instance;
-}
-
-+ (id)allocWithZone:(struct _NSZone *)zone{
-    return [self sharedInstance];
-}
-
-- (void)dealloc {
-    // QMUIHelper 若干个分类里有用到消息监听，所以在 dealloc 的时候注销一下
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
 
 @end
 

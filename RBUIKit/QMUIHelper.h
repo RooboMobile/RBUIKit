@@ -9,6 +9,20 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+
+
+// 屏幕宽度，会根据横竖屏的变化而变化
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+
+// 屏幕宽度，跟横竖屏无关
+#define DEVICE_WIDTH (IS_LANDSCAPE ? [[UIScreen mainScreen] bounds].size.height : [[UIScreen mainScreen] bounds].size.width)
+
+// 屏幕高度，会根据横竖屏的变化而变化
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+#define IS_LANDSCAPE UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])
+// 屏幕高度，跟横竖屏无关
+#define DEVICE_HEIGHT (IS_LANDSCAPE ? [[UIScreen mainScreen] bounds].size.width : [[UIScreen mainScreen] bounds].size.height)
+
 @protocol QMUIHelperDelegate <NSObject>
 
 @required
@@ -22,13 +36,13 @@
 
 @property(nullable, nonatomic, weak) id<QMUIHelperDelegate> helperDelegate;
 
-@end
-
 
 extern NSString *const _Nonnull QMUIResourcesMainBundleName;
 extern NSString *const _Nonnull QMUIResourcesQQEmotionBundleName;
 
-@interface QMUIHelper (Bundle)
+#pragma Bundle
+
+
 
 // QMUI专属
 + (nullable NSBundle *)resourcesBundle;
@@ -36,20 +50,20 @@ extern NSString *const _Nonnull QMUIResourcesQQEmotionBundleName;
 
 + (nullable NSBundle *)resourcesBundleWithName:(nullable NSString *)bundleName;
 + (nullable UIImage *)imageInBundle:(nullable NSBundle *)bundle withName:(nullable NSString *)name;
-@end
 
 
-@interface QMUIHelper (DynamicType)
+#pragma mark DynamicType
+
 
 /// 返回当前contentSize的level，这个值可以在设置里面的“字体大小”查看，辅助功能里面有个“更大字体”可以设置更大的字体，不过这里我们这个接口将更大字体都做了统一，都返回“字体大小”里面最大值。
 + (nonnull NSNumber *)preferredContentSizeLevel;
 
 /// 设置当前cell的高度，heights是有七个数值的数组，对于不支持的iOS版本，则选择中间的值返回。
 + (CGFloat)heightForDynamicTypeCell:(nonnull NSArray *)heights;
-@end
+
+#pragma mark Keyboard
 
 
-@interface QMUIHelper (Keyboard)
 
 /**
  * 判断当前App里的键盘是否升起，默认为NO
@@ -87,10 +101,10 @@ extern NSString *const _Nonnull QMUIResourcesQQEmotionBundleName;
 
 /// 获取键盘显示/隐藏的动画时间函数
 + (UIViewAnimationOptions)keyboardAnimationOptionsWithNotification:(nullable NSNotification *)notification;
-@end
+
+#pragma mark AudioSession
 
 
-@interface QMUIHelper (AudioSession)
 
 /**
  *  听筒和扬声器的切换
@@ -106,9 +120,11 @@ extern NSString *const _Nonnull QMUIResourcesQQEmotionBundleName;
  *  @param category 使用iOS7的category，iOS6的会自动适配
  */
 + (void)setAudioSessionCategory:(nullable NSString *)category;
-@end
 
-@interface QMUIHelper (UIGraphic)
+
+#pragma mark UIGraphic
+
+
 
 /// 获取一像素的大小
 + (CGFloat)pixelOne;
@@ -119,10 +135,10 @@ extern NSString *const _Nonnull QMUIResourcesQQEmotionBundleName;
 /// context是否合法
 + (void)inspectContextIfInvalidatedInDebugMode:(CGContextRef _Nonnull)context;
 + (BOOL)inspectContextIfInvalidatedInReleaseMode:(CGContextRef _Nonnull)context;
-@end
+
+#pragma Device
 
 
-@interface QMUIHelper (Device)
 
 + (BOOL)isIPad;
 + (BOOL)isIPadPro;
@@ -143,10 +159,12 @@ extern NSString *const _Nonnull QMUIResourcesQQEmotionBundleName;
 + (CGSize)screenSizeFor35Inch;
 
 /// 判断当前设备是否高性能设备，只会判断一次，以后都直接读取结果，所以没有性能问题
-+ (BOOL)isHighPerformanceDevice;
-@end
+//+ (BOOL)isHighPerformanceDevice;
 
-@interface QMUIHelper (Orientation)
+
+#pragma Orientation
+
+
 
 /**
  *  旋转当前设备的方向到指定方向，一般用于 [UIViewController supportedInterfaceOrientations] 发生变化时主动触发界面方向的刷新
@@ -169,9 +187,11 @@ extern NSString *const _Nonnull QMUIResourcesQQEmotionBundleName;
 
 /// 根据指定的旋转方向计算出对应的CGAffineTransform
 + (CGAffineTransform)transformWithInterfaceOrientation:(UIInterfaceOrientation)orientation;
-@end
 
-@interface QMUIHelper (UIApplication)
+
+#pragma mark UIApplication
+
+
 
 /**
  *  更改状态栏内容颜色为深色
@@ -197,17 +217,19 @@ extern NSString *const _Nonnull QMUIResourcesQQEmotionBundleName;
  */
 + (void)resetDimmedApplicationWindow;
 
-@end
+
 
 extern NSString * __nonnull const QMUISpringAnimationKey;
 
-@interface QMUIHelper (Animation)
+#pragma mark Animation
+
+
 
 + (void)actionSpringAnimationForView:(nonnull UIView *)view;
 
-@end
+#pragma mark Log
 
-@interface QMUIHelper (Log)
+
 
 - (void)printLogWithCalledFunction:(nonnull const char *)func log:(nonnull NSString *)log, ... NS_FORMAT_FUNCTION(2,3);
 

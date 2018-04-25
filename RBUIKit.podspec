@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.author           = { 'baxiang' => 'baxiang@roobo.com' }
   s.source           = { :git => 'https://github.com/RooboMobile/RBUIKit.git', :tag => s.version.to_s }
   s.ios.deployment_target = '7.0'
-  s.source_files = 'RBUIKit/RBUIKit.h', 'RBUIKit/QMUICore', 'RBUIKit/UIKitExtensions'
+  s.source_files = 'RBUIKit/*.{h,m}'
   s.frameworks       = 'Foundation', 'UIKit', 'CoreGraphics'
 
 end

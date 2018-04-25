@@ -14,14 +14,6 @@
 
 #pragma mark - 变量-编译相关
 
-// 判断当前是否debug编译模式
-#ifdef DEBUG
-#define IS_DEBUG YES
-#else
-#define IS_DEBUG NO
-#endif
-
-
 /// 判断当前编译使用的 Base SDK 版本是否为 iOS 8.0 及以上
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
@@ -82,22 +74,11 @@
 
 // 是否横竖屏
 // 用户界面横屏了才会返回YES
-#define IS_LANDSCAPE UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])
+
 // 无论支不支持横屏，只要设备横屏了，就会返回YES
 #define IS_DEVICE_LANDSCAPE UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation])
 
 
-// 屏幕宽度，会根据横竖屏的变化而变化
-#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
-
-// 屏幕宽度，跟横竖屏无关
-#define DEVICE_WIDTH (IS_LANDSCAPE ? [[UIScreen mainScreen] bounds].size.height : [[UIScreen mainScreen] bounds].size.width)
-
-// 屏幕高度，会根据横竖屏的变化而变化
-#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
-
-// 屏幕高度，跟横竖屏无关
-#define DEVICE_HEIGHT (IS_LANDSCAPE ? [[UIScreen mainScreen] bounds].size.width : [[UIScreen mainScreen] bounds].size.height)
 
 // 设备屏幕尺寸
 #define IS_58INCH_SCREEN [QMUIHelper is58InchScreen]
